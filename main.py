@@ -12,8 +12,8 @@ try:
     import RPi.GPIO as GPIO
     GPIO.setmode(GPIO.BCM)
     config.GPIO_AVAILABLE = True
-except Exception, e:
-    print "GPIO UNAVAILABLE (%s)" % e
+except (Exception, e):
+    print("GPIO UNAVAILABLE (%s)" % e)
     config.GPIO_AVAILABLE = False
 
 from pypboy.core import Pypboy
@@ -26,5 +26,5 @@ except:
 
 if __name__ == "__main__":
     boy = Pypboy('Pip-Boy 3000', config.WIDTH, config.HEIGHT)
-    print "RUN"
+    print("RUN")
     boy.run()
